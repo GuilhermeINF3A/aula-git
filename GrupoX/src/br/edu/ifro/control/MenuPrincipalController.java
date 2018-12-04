@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
 
 /**
  *
@@ -33,13 +34,15 @@ public class MenuPrincipalController implements Initializable {
         fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Aluno.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("Cadastrar aluno");
+        stage.setTitle("Cadastrar Clientes");
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     private void fecharProjeto(ActionEvent event) {
+        
+         
         
     }
 
@@ -49,7 +52,7 @@ public class MenuPrincipalController implements Initializable {
         fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/ListagemAluno.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("Cadastrar aluno");
+        stage.setTitle("Listagem de Clientes");
         stage.setScene(scene);
         stage.show();
     }

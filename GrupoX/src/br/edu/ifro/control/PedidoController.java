@@ -1,11 +1,13 @@
 package br.edu.ifro.control;
 
+import br.edu.ifro.model.Aluno;
 import br.edu.ifro.model.Pedido;
 import br.edu.ifro.model.Produto;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +23,10 @@ import javax.persistence.Query;
 
 public class PedidoController implements Initializable {
 
+    @FXML
+    private TableView<?> tbAlunos;
+    @FXML
+    private ComboBox<?> cbAlunos;
     @FXML
     private ComboBox<Produto> cbProduto;
     @FXML
@@ -47,7 +53,9 @@ public class PedidoController implements Initializable {
         cbProduto.setItems(FXCollections.observableArrayList(produtos));
         
         pedido = new Pedido();
-    }  
+        
+        listar();
+    }     
 
     @FXML
     private void adicionarProduto(ActionEvent event) {
@@ -74,5 +82,21 @@ public class PedidoController implements Initializable {
         
         tbProdutos.setItems(FXCollections.observableArrayList(pedido.getProdutos()));
     }
+    private void listar() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("aula");
+        EntityManager em = emf.createEntityManager();
+                
+        // import javax.persistence.Query;
+        Query qr = em.createQuery("SELECT a FROM Aluno as a");
+        // import java.util.List;
+        // import br.edu.ifro.model.Aluno;
+        List<Aluno> alunos = qr.getResultList();
+        // import javafx.collections.ObservableList;
+        // import javafx.collections.FXCollections;
+        ObservableList oAlunos = FXCollections.observableArrayList(alunos);                                 
+        cbAlunos.setItems(oAlunos);
+        
+    }
+    
     
 }
