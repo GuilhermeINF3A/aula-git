@@ -23,10 +23,7 @@ import javax.persistence.Query;
 
 public class PedidoController implements Initializable {
 
-    @FXML
-    private TableView<?> tbAlunos;
-    @FXML
-    private ComboBox<?> cbAlunos;
+    
     @FXML
     private ComboBox<Produto> cbProduto;
     @FXML
@@ -36,11 +33,11 @@ public class PedidoController implements Initializable {
     @FXML
     private Button btnSalvar;
     @FXML
-    private TextField txtCliente;
-    @FXML
     private Button btnRemover;
     
     private Pedido pedido;
+    @FXML
+    private ComboBox<Aluno> cbCliente;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,7 +66,7 @@ public class PedidoController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("aula");
         EntityManager em = emf.createEntityManager();
         
-        pedido.setNomeCliente(txtCliente.getText());
+        pedido.setNomeCliente(cbCliente.getSelectionModel().getSelectedItem());
         
         em.getTransaction().begin();
         em.persist(pedido);
@@ -94,7 +91,7 @@ public class PedidoController implements Initializable {
         // import javafx.collections.ObservableList;
         // import javafx.collections.FXCollections;
         ObservableList oAlunos = FXCollections.observableArrayList(alunos);                                 
-        cbAlunos.setItems(oAlunos);
+        cbCliente.setItems(oAlunos);
         
     }
     

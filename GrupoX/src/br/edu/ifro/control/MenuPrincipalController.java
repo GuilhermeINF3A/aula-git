@@ -80,5 +80,5 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void abrirListagemPedidos(ActionEvent event) {
     }
-    
+
 }

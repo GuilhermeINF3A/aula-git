@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -14,7 +15,23 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nomeCliente;
+        
+    @ManyToOne
+    private Aluno nomeCliente;
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Aluno getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(Aluno nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+
     
     @ManyToMany
     private List<Produto> produtos;
@@ -42,12 +59,5 @@ public class Pedido {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
+   
 }
