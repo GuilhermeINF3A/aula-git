@@ -29,9 +29,9 @@ public class MenuPrincipalController implements Initializable {
     }    
 
     @FXML
-    private void abrirCadastroAluno(ActionEvent event) throws IOException {
+    private void abrirCadastroCliente(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Aluno.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Cliente.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle("Cadastrar Clientes");
@@ -41,9 +41,9 @@ public class MenuPrincipalController implements Initializable {
 
 
     @FXML
-    private void abrirListagemAluno(ActionEvent event) throws IOException {
+    private void abrirListagemCliente(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/ListagemAluno.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/ListagemCliente.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle("Listagem de Clientes");
@@ -74,11 +74,22 @@ public class MenuPrincipalController implements Initializable {
     }
 
     @FXML
-    private void abrirListagemFuncionarios(ActionEvent event) {
+    private void abrirListagemFuncionarios(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/ListagemFuncionarios.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listagem de Funcionários");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     private void abrirListagemPedidos(ActionEvent event) {
+    }
+
+    @FXML
+    private void abrirListagemProduto(ActionEvent event) {
     }
 
 }

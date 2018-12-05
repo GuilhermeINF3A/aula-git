@@ -1,6 +1,6 @@
 package br.edu.ifro.control;
 
-import br.edu.ifro.model.Aluno;
+import br.edu.ifro.model.Cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -20,12 +20,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class ListagemAlunoController implements Initializable {
+public class ListagemClienteController implements Initializable {
 
     @FXML
-    private TableView<?> tbAlunos;
-    @FXML
-    private ComboBox<?> cbAlunos;
+    private TableView<?> tbCliente;
+    private ComboBox<?> cbCliente;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -35,14 +34,14 @@ public class ListagemAlunoController implements Initializable {
     @FXML
     private void editar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Aluno.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Cliente.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         
-        AlunoController c = fxmlLoader.getController();
-        c.editarAluno((Aluno) tbAlunos.getSelectionModel().getSelectedItem());
+        ClienteController c = fxmlLoader.getController();
+        c.editarCliente((Cliente) tbCliente.getSelectionModel().getSelectedItem());
         
-        stage.setTitle("Cadastrar aluno");
+        stage.setTitle("Cadastrar cliente");
         stage.setScene(scene);
         stage.show();
     }
@@ -52,12 +51,12 @@ public class ListagemAlunoController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("aula");
         EntityManager em = emf.createEntityManager();
         
-        Aluno aluno = (Aluno) tbAlunos.getSelectionModel().getSelectedItem();
+        Cliente Cliente = (Cliente) tbCliente.getSelectionModel().getSelectedItem();
         
-        Query query = em.createQuery("SELECT a FROM Aluno as a WHERE a.id = :id");
-        query.setParameter("id", aluno.getId());
+        Query query = em.createQuery("SELECT a FROM Cliente as a WHERE a.id = :id");
+        query.setParameter("id", Cliente.getId());
                
-        Aluno a = (Aluno) query.getSingleResult();
+        Cliente a = (Cliente) query.getSingleResult();
         
         em.getTransaction().begin();
         em.remove(a);
@@ -70,15 +69,15 @@ public class ListagemAlunoController implements Initializable {
         EntityManager em = emf.createEntityManager();
                 
         // import javax.persistence.Query;
-        Query query = em.createQuery("SELECT a FROM Aluno as a");
+        Query query = em.createQuery("SELECT a FROM Cliente as a");
         // import java.util.List;
-        // import br.edu.ifro.model.Aluno;
-        List<Aluno> alunos = query.getResultList();
+        // import br.edu.ifro.model.Cliente;
+        List<Cliente> cliente = query.getResultList();
         // import javafx.collections.ObservableList;
         // import javafx.collections.FXCollections;
-        ObservableList oAlunos = FXCollections.observableArrayList(alunos);                                 
-        cbAlunos.setItems(oAlunos);
-        tbAlunos.setItems(oAlunos);
+        ObservableList oCliente = FXCollections.observableArrayList(cliente);                                 
+        cbCliente.setItems(oCliente);
+        tbCliente.setItems(oCliente);
     }
     
 }

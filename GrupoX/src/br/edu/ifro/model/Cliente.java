@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-public class Aluno {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

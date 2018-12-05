@@ -5,7 +5,7 @@
  */
 package br.edu.ifro.control;
 
-import br.edu.ifro.model.Aluno;
+import br.edu.ifro.model.Cliente;
 import br.edu.ifro.model.Cidade;
 import br.eti.diegofonseca.MaskFieldUtil;
 import java.net.URL;
@@ -28,7 +28,7 @@ import javax.persistence.Query;
  *
  * @author erica
  */
-public class AlunoController implements Initializable {
+public class ClienteController implements Initializable {
 
     @FXML
     private TextField txtNome;
@@ -36,15 +36,15 @@ public class AlunoController implements Initializable {
     @FXML
     private TextField txtTelefone;
     
-    private Aluno aluno;
+    private Cliente cliente;
     
     @FXML
     private ComboBox<Cidade> cbCidade;
     
-    public void editarAluno(Aluno aluno) {
-        this.aluno = aluno;
-        txtNome.setText(aluno.getNome());
-        txtTelefone.setText(aluno.getTelefone());
+    public void editarCliente(Cliente cliente) {
+        this.cliente = cliente;
+        txtNome.setText(cliente.getNome());
+        txtTelefone.setText(cliente.getTelefone());
     }
 
     /**
@@ -69,28 +69,28 @@ public class AlunoController implements Initializable {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("aula");
         EntityManager em = emf.createEntityManager();
         
-        Aluno aluno1;
-        if (aluno != null) {            
-            Query query = em.createQuery("SELECT a FROM Aluno as a WHERE a.id = :id");
-            query.setParameter("id", aluno.getId());
+        Cliente cliente1;
+        if (cliente != null) {            
+            Query query = em.createQuery("SELECT a FROM Cliente as a WHERE a.id = :id");
+            query.setParameter("id", cliente.getId());
 
-            aluno1 = (Aluno) query.getSingleResult();
+            cliente1 = (Cliente) query.getSingleResult();
         } 
         else {
-            aluno1 = new Aluno();
+            cliente1 = new Cliente();
         }     
         
-        aluno1.setNome(txtNome.getText());
+        cliente1.setNome(txtNome.getText());
         // com mascara
-        aluno1.setTelefone(txtTelefone.getText());
+        cliente1.setTelefone(txtTelefone.getText());
         
-        aluno1.setCidade(cbCidade.getSelectionModel().getSelectedItem());
+        cliente1.setCidade(cbCidade.getSelectionModel().getSelectedItem());
         // sem mascara
-        //aluno1.setTelefone(MaskFieldUtil.onlyAlfaNumericValue(txtTelefone));
+        //cliente1.setTelefone(MaskFieldUtil.onlyAlfaNumericValue(txtTelefone));
         
         em.getTransaction().begin();
         
-        em.persist(aluno1);
+        em.persist(cliente1);
         
         em.getTransaction().commit();
         

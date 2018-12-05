@@ -1,6 +1,6 @@
 package br.edu.ifro.control;
 
-import br.edu.ifro.model.Aluno;
+import br.edu.ifro.model.Cliente;
 import br.edu.ifro.model.Pedido;
 import br.edu.ifro.model.Produto;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class PedidoController implements Initializable {
     
     private Pedido pedido;
     @FXML
-    private ComboBox<Aluno> cbCliente;
+    private ComboBox<Cliente> cbCliente;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,7 +87,7 @@ public class PedidoController implements Initializable {
         Query qr = em.createQuery("SELECT a FROM Aluno as a");
         // import java.util.List;
         // import br.edu.ifro.model.Aluno;
-        List<Aluno> alunos = qr.getResultList();
+        List<Cliente> alunos = qr.getResultList();
         // import javafx.collections.ObservableList;
         // import javafx.collections.FXCollections;
         ObservableList oAlunos = FXCollections.observableArrayList(alunos);                                 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.edu.ifro.control;
+import br.edu.ifro.model.Cliente;
  import br.edu.ifro.model.Funcionario;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ import javax.persistence.Persistence;
  * @author 3019657
  */
 public class CadastrarFuncionarioController2 implements Initializable {
+    private Funcionario funcionario;
      @FXML
     private TextField txtNome;
     @FXML
@@ -55,4 +57,13 @@ public class CadastrarFuncionarioController2 implements Initializable {
         stage.close();
     }
     
-}
+    public void editarFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+        txtNome.setText(funcionario.getNome());
+        txtUsuario.setText(funcionario.getUsuario());
+        txtSenha.setText(funcionario.getSenha());
+    }
+    
+ }
+
+    

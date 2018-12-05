@@ -17,17 +17,17 @@ public class Pedido {
     private int id;
         
     @ManyToOne
-    private Aluno nomeCliente;
+    private Cliente nomeCliente;
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
 
-    public Aluno getNomeCliente() {
+    public Cliente getNomeCliente() {
         return nomeCliente;
     }
 
-    public void setNomeCliente(Aluno nomeCliente) {
+    public void setNomeCliente(Cliente nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 

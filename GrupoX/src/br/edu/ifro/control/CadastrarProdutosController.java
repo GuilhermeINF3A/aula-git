@@ -24,9 +24,8 @@ import javax.persistence.Persistence;
  *
  * @author 02233249224
  */
-public class CasdastrarProdutosController implements Initializable {
+public class CadastrarProdutosController implements Initializable {
 
-    @FXML
     private TextField txtNome;
     @FXML
     private TextField txtDescricao;
@@ -47,8 +46,7 @@ public class CasdastrarProdutosController implements Initializable {
 
     @FXML
     private void salvar(ActionEvent event) {
-        Produto produto = new Produto();
-        produto.setNome(txtNome.getText());
+        Produto produto = new Produto();        
         produto.setValor(Double.parseDouble(txtPreco.getText()));
         produto.setDescricao(txtDescricao.getText());
         

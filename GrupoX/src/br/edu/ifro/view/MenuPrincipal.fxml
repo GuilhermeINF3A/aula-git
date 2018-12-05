@@ -14,7 +14,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Cadastros">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#abrirCadastroAluno" text="Cadastro de Clientes" />
+              <MenuItem mnemonicParsing="false" onAction="#abrirCadastroCliente" text="Cadastro de Clientes" />
                   <MenuItem mnemonicParsing="false" onAction="#abrirCadastrodeProduto" text="Cadastro de Produto" />
             </items>
           </Menu>
@@ -26,8 +26,9 @@
             <Menu mnemonicParsing="false" text="Listagem">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirListagemFuncionarios" text="Listagem de Funcionários" />
-                  <MenuItem mnemonicParsing="false" onAction="#abrirListagemAluno" text="Listagem de Clientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirListagemCliente" text="Listagem de Clientes" />
                   <MenuItem mnemonicParsing="false" onAction="#abrirListagemPedidos" text="Listagem de Pedidos" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirListagemProduto" text="Listagem de Produtos" />
                </items>
             </Menu>
         </menus>
