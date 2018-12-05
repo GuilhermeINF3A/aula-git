@@ -39,12 +39,6 @@ public class MenuPrincipalController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private void fecharProjeto(ActionEvent event) {
-        
-         
-        
-    }
 
     @FXML
     private void abrirListagemAluno(ActionEvent event) throws IOException {
@@ -66,6 +60,25 @@ public class MenuPrincipalController implements Initializable {
         stage.setTitle("Criar pedido");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void abrirCadastrodeProduto(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/CadastrarProdutos.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Cadastrar Produtos");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void abrirListagemFuncionarios(ActionEvent event) {
+    }
+
+    @FXML
+    private void abrirListagemPedidos(ActionEvent event) {
     }
     
 }

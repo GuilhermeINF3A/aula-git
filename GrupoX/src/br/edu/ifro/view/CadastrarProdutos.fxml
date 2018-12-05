@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="353.0" prefWidth="544.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.edu.ifro.control.CasdastrarProdutosController">
+<AnchorPane id="AnchorPane" prefHeight="353.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.control.CasdastrarProdutosController">
    <children>
       <Label layoutX="30.0" layoutY="64.0" text="Nome do Produto" />
       <Label layoutX="306.0" layoutY="60.0" prefHeight="17.0" prefWidth="38.0" text="Preço" />
@@ -16,7 +15,7 @@
       <TextField fx:id="txtDescricao" layoutX="25.0" layoutY="141.0" prefHeight="128.0" prefWidth="493.0" />
       <TextField fx:id="txtPreco" layoutX="299.0" layoutY="77.0" />
       <Label layoutX="30.0" layoutY="124.0" prefHeight="17.0" prefWidth="58.0" text="Descrição" />
-      <Button fx:id="btnSalvar" layoutX="127.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Salvar" />
-      <Button fx:id="btnFechar" layoutX="299.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Fechar" />
+      <Button fx:id="btnSalvar" layoutX="127.0" layoutY="295.0" mnemonicParsing="false" onAction="#salvar" prefHeight="25.0" prefWidth="119.0" text="Salvar" />
+      <Button fx:id="btnFechar" layoutX="299.0" layoutY="295.0" mnemonicParsing="false" onAction="#fechar" prefHeight="25.0" prefWidth="119.0" text="Fechar" />
    </children>
 </AnchorPane>
